@@ -14,6 +14,7 @@ import { apolloClient } from 'providers'
 import Theme from 'theme'
 
 import 'sanitize.css/sanitize.css'
+import ListAPI from 'routes/ListUnauthAPI'
 
 const AuthenticatedApp = lazy(() => import('./AuthenticatedApp'))
 const UnauthenticatedApp = lazy(() => import('./UnauthenticatedApp'))
@@ -48,7 +49,7 @@ const App = () => {
         <Helmet titleTemplate='Nave.rs | %s' />
         <GlobalStyle />
         <Suspense fallback={<Loader />}>
-          <Router>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
+          <Router>{user ? <UnauthenticatedApp /> : <AuthenticatedApp />}</Router>
         </Suspense>
         <ReactQueryDevtools />
       </Theme>
